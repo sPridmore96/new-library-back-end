@@ -25,7 +25,6 @@ public class HomeCommands extends Commands{
             case 2:
                 printMessage("Search For a Book");
                 setNextCommands("Search");
-//                System.out.println(getNextCommands());
                 break;
             case 3:
                 printMessage("User Area");

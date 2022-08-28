@@ -3,6 +3,8 @@ package org.nology;
 import java.util.List;
 
 public interface AdminInterface {
-    public List<LibraryBook> getStockCheck();
-    public void printCsvReport();
+    public void makeStockCsv(List<LibraryBook> dataToLoop);
+    public void showLibraryStock();
+    public void printUserList();
+
 }

@@ -12,6 +12,12 @@ public class Main {
                 "08/06/96",
                 Collections.singletonList("tech,Mathematics"),
                 false);
+        UserAdmin newAdmin = new UserAdmin("Euan", "Herbertson",
+                "29/08/2000",
+                Collections.singletonList("fiction,tech"),
+                true );
+
+        newAdmin.makeStockCsv(newLibrary.getBooksInList());
 
         boolean isActive = true;
 

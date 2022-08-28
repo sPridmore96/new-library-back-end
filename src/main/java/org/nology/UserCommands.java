@@ -87,7 +87,6 @@ public class UserCommands extends Commands {
                run(library, user);
                break;
             case 4:
-                System.out.println("gettinghere");
                 setNextCommands("Home");
                 break;
             default:
