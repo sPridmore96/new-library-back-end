@@ -7,6 +7,7 @@ public class SearchCommands extends Commands {
         super("Search",
                 new String[]{"Search the Library By Exact Name / Author / Publisher or Genre",
                         "Search The library by a close match to your input",
+                        "Search alphabetically",
                         "Return Home"},
                 "SearchCommands");
     }
@@ -15,7 +16,7 @@ public class SearchCommands extends Commands {
     public void run(Library library, userNormal user) {
         printCommandsGreeting();
         printCommands();
-        int userInt = getIntegerInput(3);
+        int userInt = getIntegerInput(4);
         switch (userInt){
             case 1:
                 List<LibraryBook> strictFoundBooks = library.StrictManualSearch(getStringInput());
@@ -30,6 +31,12 @@ public class SearchCommands extends Commands {
                 run(library, user);
                 break;
             case 3:
+                library.sortAlphabetically();
+                library.printList();
+                library.sortedById();
+                run(library, user);
+                break;
+            case 4:
                 setNextCommands("Home");
                 break;
             default:

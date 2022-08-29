@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class userNormal extends User implements LoaningInterface {
-    public userNormal(String firstName, String lastName, String DOB, List<String> genres, boolean isAdmin) {
-        super(firstName, lastName, DOB, genres, isAdmin);
+    public userNormal(String firstName, String lastName, String DOB, List<String> genres, List<LibraryBook> usersBooks, boolean isAdmin) {
+        super(firstName, lastName, DOB, genres, usersBooks,isAdmin);
     }
 
 
@@ -30,6 +30,8 @@ public class userNormal extends User implements LoaningInterface {
     public List<LibraryBook> getBooksInList() {
         return getUsersBooks();
     }
+
+
 
     @Override
     public void printList() {

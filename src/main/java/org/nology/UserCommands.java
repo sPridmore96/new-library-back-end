@@ -67,12 +67,13 @@ public class UserCommands extends Commands {
                 break;
             case 2:
                 printMessage("Your Current Books are : ");
-                if (user.getUsersBooks().size() == 0) {
-                    printMessage("You haven't loaned any books yet");
-                } else {
+//                if (user.getUsersBooks().size() == 0) {
+//                    printMessage("You haven't loaned any books yet\n");
+//                    run(library, user);
+//                } else {
                 user.printList();
                 run(library, user);
-                }
+//                }
                 break;
             case 3:
                 printMessage("Returning a book");

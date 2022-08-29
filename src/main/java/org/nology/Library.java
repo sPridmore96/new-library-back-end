@@ -19,6 +19,13 @@ public class Library implements LoaningInterface {
             br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] row = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+                List<String> titleArr = new ArrayList<>(List.of(row[1].split(",")));
+                Collections.reverse(titleArr);
+                String fullTitle = titleArr.stream().map(title -> title.toString())
+                        .collect(Collectors.joining(""))
+                        .replaceFirst("\\s+", "")
+                        .replaceFirst("\"", "")
+                        .replaceFirst("\"", " ");
                 List<String> nameArr = new ArrayList<>(List.of(row[2].split(",")));
                 Collections.reverse(nameArr);
                 String fullNames = nameArr.stream()
@@ -27,7 +34,7 @@ public class Library implements LoaningInterface {
                         .replaceFirst("\\s+", "")
                         .replaceFirst("\"", "")
                         .replaceFirst("\"", " ");
-                library.add(new LibraryBook(parseInt(row[0]), row[1], fullNames, row[3], row[4], row[5], true));
+                library.add(new LibraryBook(parseInt(row[0]), fullTitle, fullNames, row[3], row[4], row[5], true));
             }
         } catch (IOException e) {
             e.printStackTrace();

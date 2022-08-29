@@ -10,17 +10,19 @@ private String firstName;
 private String lastName;
 private String DOB;
 private List<String> genres;
-private String id;
-private List<LibraryBook> usersBooks = new ArrayList<>();
+private final String id;
+private List<LibraryBook> usersBooks;
 private boolean isAdmin;
 
-    public User(String firstName, String lastName, String DOB, List<String> genres, boolean isAdmin) {
+    public User(String firstName, String lastName, String DOB, List<String> genres, List<LibraryBook> usersBooks, boolean isAdmin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.DOB = DOB;
         this.genres = genres;
         this.id = firstName + lastName + DOB;
         this.isAdmin = isAdmin;
+        this.usersBooks = usersBooks;
+
 
     }
 

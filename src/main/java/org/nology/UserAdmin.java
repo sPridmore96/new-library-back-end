@@ -13,8 +13,8 @@ import java.util.stream.Collectors;
 
 public class UserAdmin extends User implements LoaningInterface, AdminInterface {
 
-    public UserAdmin(String firstName, String lastName, String DOB, List<String> genres, boolean isAdmin) {
-        super(firstName, lastName, DOB, genres, isAdmin);
+    public UserAdmin(String firstName, String lastName, String DOB, List<String> genres, boolean isAdmin, List<LibraryBook> usersBooks) {
+        super(firstName, lastName, DOB, genres, usersBooks, isAdmin);
     }
 
     @Override
@@ -111,7 +111,7 @@ public class UserAdmin extends User implements LoaningInterface, AdminInterface 
                         eachBook.getStock() + ""};
                 data.add(bookToAdd);
             }
-                writer.writeAll(data);
+            writer.writeAll(data);
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -119,9 +119,10 @@ public class UserAdmin extends User implements LoaningInterface, AdminInterface 
     }
 
     @Override
-    public void showLibraryStock() {
+    public void showLibraryStock(List<LibraryBook> givenList) {
+        givenList.sort(Comparator.comparing(LibraryBook::getStock));
+    };
 
-    }
 
     @Override
     public void printUserList() {
